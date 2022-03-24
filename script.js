@@ -105,3 +105,49 @@ let questions = [{
         answer: 2,
     }
 ]
+
+//these deal with the points in the max score and points in the game.
+
+const SCORE_POINTS = 100
+const MAX_QUESTIONS = 10
+
+//sets the game's logic
+
+startGame = () => {
+    questionCounter = 0;
+    score = 0;
+    availableQuestions = [...questions]
+    getNewQuestion()
+}
+
+//Stores the scores including the high scores
+
+getNewQuestion = () => {
+    if (availableQuestions.length === 0 || questionCounter > MAX_QUESTIONS) {
+        localStorage.setItem('mostRecentScore', score)
+
+        return window.location.assign('/end.html')
+    }
+
+    //Increments the questions & calculates what question we're on corresponding it with the percentage
+
+    questionCounter++
+    progressText.innerText = `Question ${questionCounter} of ${MAX_QUESTIONS}`
+    progressBarFull.getElementsByClassName.width = `${(questionCounter/MAX_QUESTIONS)*100}%`
+
+    //calculates the value of the question index
+
+    const questionsIndex = Math.floor(Math.random() * availableQuestions.length)
+    currentQuestion = availableQuestions[questionsIndex]
+    question.innerText = currentQuestion.question
+
+    choices.forEach(choice => {
+        const number = choice.datase['number']
+        choice.innerText = currentQuestion['choice' + number]
+    })
+
+    availableQuestions.splice(questionsIndex, 1)
+
+    acceptingAnswers = true;
+
+}
