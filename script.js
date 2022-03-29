@@ -61,7 +61,7 @@ let questions = [{
     },
 
     {
-        question: 'What is the capital of bosnia and herzegovina?',
+        question: 'What is the capital of Bosnia and Herzegovina?',
         choice1: 'Tirana',
         choice2: 'Skopje',
         choice3: 'Sarajevo',
@@ -79,7 +79,7 @@ let questions = [{
     },
 
     {
-        question: 'What is the capital of khazakhstan?',
+        question: 'What is the capital of Khazakhstan?',
         choice1: 'Nur-Sultan',
         choice2: 'Minsk',
         choice3: 'Tallinn',
